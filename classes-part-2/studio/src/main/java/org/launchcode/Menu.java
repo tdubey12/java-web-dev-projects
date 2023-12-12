@@ -1,32 +1,35 @@
 package org.launchcode;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Menu {
-    private Date lastUpdated;
-    private ArrayList<MenuItem> items;
+    private ArrayList<MenuItem> menuItems=new ArrayList<>();
 
-    public Menu(Date d, ArrayList<MenuItem> i) {
-        this.lastUpdated = d;
-        this.items = i;
+    LocalDate updatedDate;
+
+    public void addMenuItem(MenuItem menuItem){
+        if(!menuItems.contains(menuItem)) {
+            menuItems.add(menuItem);
+            updatedDate = LocalDate.now();
+        }else{
+            System.out.println("duplicate item:"+menuItem.getName());
+        }
+    }
+    public void removeMenuItem(MenuItem menuItem){
+        menuItems.remove(menuItem);
+        updatedDate =LocalDate.now();
+    }
+    public ArrayList<MenuItem> getMenuItems(){
+
+        return menuItems;
     }
 
-    public void setLastUpdated(Date lastUpdated) {
-        this.lastUpdated = lastUpdated;
-    }
-
-    public void setItems(ArrayList<MenuItem> items) {
-        this.items = items;
-    }
-
-    public Date getLastUpdated() {
-        return lastUpdated;
-    }
-
-    public ArrayList<MenuItem> getItems() {
-        return items;
+    @Override
+    public String toString() {
+        return "Menu{" +
+                "menuItems=" + menuItems +
+                ", updatedDate=" + updatedDate +
+                '}';
     }
 }
-
-
