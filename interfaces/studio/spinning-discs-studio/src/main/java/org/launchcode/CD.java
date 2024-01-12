@@ -1,10 +1,14 @@
 package org.launchcode;
 
 public class CD extends BaseDisc implements OpticalDisc{
+    public CD(String aName,int maxCapacity, String aType, int someUsedCapacity){
+        super(aNmae, maxCapacity, aType, someUsedCapacity);
+    }
     // TODO: Implement your custom interface.
 
     @Override
     public void spinDisc() {
+        System.out.println("A CD spins at a rate of 200 - 500 rpm.");
 
     }
 
@@ -14,6 +18,7 @@ public class CD extends BaseDisc implements OpticalDisc{
     }
     @Override
     public void readData() {
+        System.out.println("Would you like to play a game?");
 
     }
     @Override
